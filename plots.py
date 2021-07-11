@@ -567,6 +567,7 @@ if __name__ == '__main__':
 
             for f in match(item['files']):
                 mask, hist = torch.load(f)
+                hist._coalesced_(True)
                 dims = mask.nonzero().squeeze(-1).tolist()
 
                 pairs = {}
